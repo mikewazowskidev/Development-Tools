@@ -1,0 +1,13 @@
+Introduction:
+The "Web Page Archiver with User-Agent Rotator" is a Python script designed to facilitate web page archiving and browsing. It utilizes the Pyppeteer library to automate web interactions, enabling users to archive web pages and open them in their default web browser. This script also includes a unique feature – a random User-Agent rotator – that enhances user anonymity while browsing.
+
+Key Features:
+
+    Web Page Archiving: The script uses archive.today to archive web pages. Users simply provide the URL of the page they wish to archive, and the script takes care of the rest.
+
+    Web Page Opening: After archiving, the script opens the archived page in the user's default web browser, providing a quick way to access the archived content.
+
+    User-Agent Rotator: To enhance user anonymity, the script leverages the "fake-useragent" library to generate random User-Agent strings for each request. This makes it challenging for websites to track users' activities and increases privacy during web scraping.
+
+Usage:
+Users can easily run the script by specifying the URL of the web page they want to archive and open. A simple command in the terminal initiates the process.
