@@ -49,36 +49,66 @@ languages = [
 ]
 
 referrers = [
-    "https://www.google.com", "https://www.bing.com", "https://www.yahoo.com",
-    "https://www.duckduckgo.com", "https://www.baidu.com", "https://www.yandex.ru",
-    "https://www.naver.com", "https://www.bing.co.uk", "https://www.google.fr",
-    "https://www.google.de", "https://annehelen.substack.com/", "https://jessicareedkraus.substack.com/",
-    "https://theisolationjournals.substack.com/", "https://wethefifth.substack.com/",
-    "mg1.substack.com",
-    "https://www.blockedandreported.org/", "https://www.blackbirdspyplane.com/",  
-    "https://newsletter.pragmaticengineer.com", "https://www.semianalysis.com/", 
-    "https://blog.bytebytego.com/", "https://www.computerenhance.com/",  
+    "https://www.google.com",  # Global search engine
+    "https://www.bing.com",  # Microsoft's search engine
+    "https://www.yahoo.com",  # Combines search and news
+    "https://www.duckduckgo.com",  # Privacy-focused search engine
     "https://www.baidu.com",  # Primary search engine in China
-    "https://www.sina.com.cn",  # News website
-    "https://www.sohu.com",  # News and media
-    "https://www.qq.com",  # News and social network
-    "https://www.163.com",  # News website
-    "https://www.ifeng.com",  # News and media
-    "https://www.xinhuanet.com",  # State news agency
-    "https://www.people.com.cn",  # Official newspaper of the Chinese Communist Party
-    "https://www.cctv.com",  # National TV broadcaster
-    "https://www.cs.com.cn",  # Financial news
+    "https://www.yandex.ru",  # Russian search engine
+    "https://www.naver.com",  # South Korean search platform
+    "https://www.bing.co.uk",  # UK version of Bing
+    "https://www.google.fr",  # French version of Google
+    "https://www.google.de",  # German version of Google
+    "https://annehelen.substack.com/",  # Cultural and political commentary
+    "https://jessicareedkraus.substack.com/",  # Various topic commentary
+    "https://theisolationjournals.substack.com/",  # Personal development focus
+    "https://wethefifth.substack.com/",  # Political and free speech focus
+    "https://mg1.substack.com",  # Specific focus unknown
+    "https://www.blockedandreported.org/",  # Social and cultural issues
+    "https://www.blackbirdspyplane.com/",  # Fashion and culture
+    "https://newsletter.pragmaticengineer.com",  # Software engineering insights
+    "https://www.semianalysis.com/",  # Tech industry analysis
+    "https://blog.bytebytego.com/",  # Software engineering and problem-solving
+    "https://www.computerenhance.com/",  # AI and tech advancements
+    "https://www.sina.com.cn",  # Chinese news website
+    "https://www.sohu.com",  # Chinese news and media
+    "https://www.qq.com",  # Chinese news and social network
+    "https://www.163.com",  # Chinese news website
+    "https://www.ifeng.com",  # Chinese news and media
+    "https://www.xinhuanet.com",  # Chinese state news agency
+    "https://www.people.com.cn",  # Official CCP newspaper
+    "https://www.cctv.com",  # Chinese national TV broadcaster
+    "https://www.cs.com.cn",  # Chinese financial news
     "https://www.cri.cn",  # China Radio International
-    "https://www.china.com.cn",  # Government news portal
-    "https://www.gmw.cn",  # Guangming Daily, a state-run newspaper
-    "https://www.substack.com",
-    "https://www.edu.cn",  # Education network
+    "https://www.china.com.cn",  # Chinese government news portal
+    "https://www.gmw.cn",  # State-run Chinese newspaper
+    "https://www.substack.com",  # Platform for independent writers
+    "https://www.edu.cn",  # Chinese education network
     "https://www.zju.edu.cn",  # Zhejiang University
     "https://www.tsinghua.edu.cn",  # Tsinghua University
     "https://www.pku.edu.cn",  # Peking University
     "https://www.fudan.edu.cn",  # Fudan University
     "https://www.sjtu.edu.cn",  # Shanghai Jiao Tong University
     "https://www.bnu.edu.cn",  # Beijing Normal University
+    "https://www.theguardian.com",  # International news and media
+    "https://www.nytimes.com",  # American news
+    "https://www.bbc.com",  # UK and international news
+    "https://www.aljazeera.com",  # Middle East-focused news
+    "https://www.rt.com",  # Russian international news network
+    "https://www.nhk.or.jp",  # Japanese public broadcasting
+    "https://www.lemonde.fr",  # French news
+    "https://www.dw.com",  # German news and analysis
+    "https://www.reuters.com",  # International news agency
+    "https://www.apnews.com",  # Associated Press news agency
+    "https://www.economist.com",  # International news and business
+    "https://www.ft.com",  # Financial Times
+    "https://www.bloomberg.com",  # Business and markets news
+    "https://www.wsj.com",  # Wall Street Journal
+    "https://www.cnbc.com",  # Business and financial news
+    "https://www.talkingpointsmemo.substack.com",  # Political analysis
+    "https://www.nationalreview.com",  # Conservative news and commentary
+    "https://www.vox.com",  # General news with explanatory journalism
+    "https://www.wired.com",  # Technology and science news
 ]
 
 resolutions = [
@@ -144,7 +174,7 @@ def parse_args():
 
 async def main():
     args = parse_args()
-    proxy_list_url = "https://raw.githubusercontent.com/Bob-Bragg/Tools/main/httpproxies6.txt"
+    proxy_list_url = "https://raw.githubusercontent.com/Bob-Bragg/Tools/main/httpproxies8.txt"
     proxies = scrape_proxies_from_url(proxy_list_url)
 
     browser = await launch(headless=True)
