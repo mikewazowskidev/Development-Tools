@@ -7,6 +7,7 @@ from pyppeteer import launch
 from urllib.parse import urlparse
 from fake_useragent import UserAgent
 from faker import Faker
+from tqdm import tqdm
 
 # Adjust the logging level
 logging.basicConfig(filename='siteviewer.log', level=logging.INFO, 
@@ -124,19 +125,21 @@ async def main():
 
         batch_size = args.batch_size
 
-        for i in range(batch_size):
-            try:
-                page = await browser.newPage()
-                proxy = random.choice(proxies)
-                request_number = total_requests + i + 1
+        with tqdm(total=batch_size, unit='request', desc='Progress') as progress_bar:
+            for i in range(batch_size):
+                try:
+                    page = await browser.newPage()
+                    proxy = random.choice(proxies)
+                    request_number = total_requests + i + 1
 
-                success = await safe_request(substack_url, page, proxy, request_number, referrers, resolutions, max_retries=3)
-                if success:
-                    total_successful += 1
-            except Exception as e:
-                siteviewer_log(f"Error during page operation: {e}", "error")
-            finally:
-                await page.close()
+                    success = await safe_request(substack_url, page, proxy, request_number, referrers, resolutions, max_retries=3)
+                    if success:
+                        total_successful += 1
+                except Exception as e:
+                    siteviewer_log(f"Error during page operation: {e}", "error")
+                finally:
+                    await page.close()
+                    progress_bar.update(1)
 
         total_requests += batch_size
         siteviewer_log(f"Batch completed. Total requests made: {total_requests}. Total successful: {total_successful}")
